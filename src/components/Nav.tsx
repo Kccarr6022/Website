@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 
 const Nav: React.FC = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+
+    const handleCloseMenu = () => setMenuOpen(false);
 
     return (
         <nav className="bg-gray-800 text-white w-full shadow">
@@ -16,26 +19,26 @@ const Nav: React.FC = () => {
                         height={40}
                         className="rounded-full object-cover"
                     />
-                    <a href="#home" className="text-2xl font-bold ml-2">
+                    <Link href="/" className="text-2xl font-bold ml-2">
                         Kaden Carr
-                    </a>
+                    </Link>
                 </div>
                 {/* Desktop Menu */}
                 <ul className="hidden md:flex gap-6 list-none m-0 p-0">
                     <li>
-                        <a href="/" className="hover:underline">Home</a>
+                        <Link href="/" className="hover:underline">Home</Link>
                     </li>
                     <li>
-                        <a href="/projects" className="hover:underline">Projects</a>
+                        <Link href="/projects" className="hover:underline">Projects</Link>
                     </li>
                     <li>
-                        <a href="/about" className="hover:underline">About</a>
+                        <Link href="/about" className="hover:underline">About</Link>
                     </li>
                     <li>
-                        <a href="/contact" className="hover:underline">Contact</a>
+                        <Link href="/contact" className="hover:underline">Contact</Link>
                     </li>
                     <li>
-                        <a href="/blog" className="hover:underline">Blog</a>
+                        <Link href="/blog" className="hover:underline">Blog</Link>
                     </li>
                 </ul>
                 {/* Mobile Hamburger */}
@@ -54,19 +57,19 @@ const Nav: React.FC = () => {
             {menuOpen && (
                 <ul className="flex flex-col gap-2 list-none p-4 md:hidden bg-gray-800 border-t border-gray-700">
                     <li>
-                        <a href="#home" className="hover:underline" onClick={() => setMenuOpen(false)}>Home</a>
+                        <Link href="/" className="hover:underline" onClick={handleCloseMenu}>Home</Link>
                     </li>
                     <li>
-                        <a href="#projects" className="hover:underline" onClick={() => setMenuOpen(false)}>Projects</a>
+                        <Link href="/projects" className="hover:underline" onClick={handleCloseMenu}>Projects</Link>
                     </li>
                     <li>
-                        <a href="#about" className="hover:underline" onClick={() => setMenuOpen(false)}>About</a>
+                        <Link href="/about" className="hover:underline" onClick={handleCloseMenu}>About</Link>
                     </li>
                     <li>
-                        <a href="#contact" className="hover:underline" onClick={() => setMenuOpen(false)}>Contact</a>
+                        <Link href="/contact" className="hover:underline" onClick={handleCloseMenu}>Contact</Link>
                     </li>
                     <li>
-                        <a href="/blog" className="hover:underline" onClick={() => setMenuOpen(false)}>Blog</a>
+                        <Link href="/blog" className="hover:underline" onClick={handleCloseMenu}>Blog</Link>
                     </li>
                 </ul>
             )}

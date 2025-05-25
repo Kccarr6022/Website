@@ -16,9 +16,9 @@ export default function About() {
         />
         <h1 className="text-3xl font-bold text-white mb-2">About Me</h1>
         <p className="text-gray-300 text-center">
-          Hi! I'm Kaden Carr, a passionate developer who loves building creative and impactful solutions. 
-          I enjoy working with modern web technologies and am always eager to learn and take on new challenges. 
-          Whether it's front-end, back-end, or full-stack development, I strive to deliver clean, efficient, and user-friendly experiences.
+          Hi! I&apos;m Kaden Carr, a passionate developer who loves building creative and impactful solutions.
+          I enjoy working with modern web technologies and am always eager to learn and take on new challenges.
+          Whether it&apos;s front-end, back-end, or full-stack development, I strive to deliver clean, efficient, and user-friendly experiences.
         </p>
       </section>
     </main>

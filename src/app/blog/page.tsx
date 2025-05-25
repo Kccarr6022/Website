@@ -8,7 +8,7 @@ export default function Blog() {
       <section className="max-w-2xl w-full mx-auto mt-12 p-8 bg-gray-800 rounded-lg shadow-lg flex flex-col items-center">
         <h1 className="text-3xl font-bold text-white mb-2">Blog</h1>
         <p className="text-gray-300 text-center">
-          Welcome to my blog! Here you'll find articles, tutorials, and updates. Check back soon for new posts.
+          Welcome to my blog! Here you&apos;ll find articles, tutorials, and updates. Check back soon for new posts.
         </p>
       </section>
     </main>
