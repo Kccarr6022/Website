@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import { getAllProjects } from "@/lib/projects";
 
@@ -19,13 +20,15 @@ export default function ProjectsPage() {
               className="bg-gray-700 p-6 rounded-xl text-white flex flex-col md:flex-row items-center shadow transition-transform hover:scale-[1.02] hover:shadow-xl"
             >
               {project.image && (
-                <img
-                  src={project.image.src}
-                  alt={project.title}
-                  width={project.image.width}
-                  height={project.image.height}
-                  className="mb-4 md:mb-0 md:mr-6 rounded-lg shadow max-h-32 object-cover w-full md:w-40"
-                />
+                <div className="relative mb-4 md:mb-0 md:mr-6 w-full md:w-40 h-32 overflow-hidden rounded-lg shadow">
+                  <Image
+                    src={project.image.src}
+                    alt={project.title}
+                    width={project.image.width}
+                    height={project.image.height}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
               )}
               <div className="flex-1 flex flex-col items-center md:items-start">
                 <h2 className="text-2xl font-semibold mb-1">{project.title}</h2>
