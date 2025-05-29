@@ -17,7 +17,7 @@
 
 # build output
 public/images/**
-src/content/** */
+src/content/**
 
 
 # next.js
