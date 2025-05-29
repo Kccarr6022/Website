@@ -6,10 +6,24 @@ import matter from "gray-matter";
 
 const blogsDirectory = path.join(process.cwd(), "src/content/blogs");
 
-type BlogFrontMatter = {
-    enabled: boolean;
-    slug?: string;
-    [key: string]: unknown;
+type BlogImage = {
+  src: string;
+  width: number;
+  height: number;
+};
+
+export type BlogFrontMatter = {
+  notionId: string;
+  type: string;
+  date: string; // ISO date string
+  tags: string;
+  enabled: boolean;
+  title: string;
+  slug: string;
+  image?: BlogImage;
+  description?: string;
+  githubUrl?: string;
+  demoUrl?: string;
 };
 
 export function getAllBlogs() {

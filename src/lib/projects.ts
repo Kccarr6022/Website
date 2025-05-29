@@ -5,11 +5,24 @@ import matter from "gray-matter";
 // This file must only be imported or executed on the server side (e.g., in getStaticProps or getServerSideProps)
 
 const projectsDirectory = path.join(process.cwd(), "src/content/projects");
+type ProjectImage = {
+  src: string;
+  width: number;
+  height: number;
+};
 
-type ProjectFrontMatter = {
+export type ProjectFrontMatter = {
+  notionId: string;
+  type: string;
+  tags: string;
+  date: string;
   enabled: boolean;
-  slug?: string;
-  [key: string]: unknown;
+  title: string;
+  slug: string;
+  githubUrl?: string;
+  demoUrl?: string;
+  description?: string;
+  image?: ProjectImage;
 };
 
 export function getAllProjects() {
