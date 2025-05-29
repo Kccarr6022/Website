@@ -9,7 +9,7 @@ const projectsDirectory = path.join(process.cwd(), "src/content/projects");
 type ProjectFrontMatter = {
   enabled: boolean;
   slug?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 };
 
 export function getAllProjects() {

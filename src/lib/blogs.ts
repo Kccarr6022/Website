@@ -9,7 +9,7 @@ const blogsDirectory = path.join(process.cwd(), "src/content/blogs");
 type BlogFrontMatter = {
     enabled: boolean;
     slug?: string;
-    [key: string]: any;
+    [key: string]: unknown;
 };
 
 export function getAllBlogs() {
