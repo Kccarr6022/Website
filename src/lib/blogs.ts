@@ -22,8 +22,8 @@ export type BlogFrontMatter = {
   slug: string;
   image?: BlogImage;
   description?: string;
-  githubUrl?: string;
-  demoUrl?: string;
+  url?: string; // Optional URL for external blogs
+  readingTime?: number; // Estimated reading time in minutes
 };
 
 export function getAllBlogs() {

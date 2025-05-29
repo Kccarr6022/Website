@@ -38,12 +38,6 @@ export default function Blog() {
                     </h2>
                     <div className="flex flex-wrap items-center gap-3 text-xs text-gray-400 mb-3">
                       <span>{blog.date.toDateString()}</span>
-                      {blog.author && (
-                        <>
-                          <span>•</span>
-                          <span className="font-medium text-gray-300">By {blog.author}</span>
-                        </>
-                      )}
                       {blog.readingTime && (
                         <>
                           <span>•</span>
