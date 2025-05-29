@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -29,16 +31,16 @@ const Nav: React.FC = () => {
                         <Link href="/" className="hover:underline">Home</Link>
                     </li>
                     <li>
-                        <Link href="/projects" className="hover:underline">Projects</Link>
-                    </li>
-                    <li>
                         <Link href="/about" className="hover:underline">About</Link>
                     </li>
                     <li>
-                        <Link href="/contact" className="hover:underline">Contact</Link>
+                        <Link href="/projects" className="hover:underline">Projects</Link>
                     </li>
                     <li>
                         <Link href="/blog" className="hover:underline">Blog</Link>
+                    </li>
+                    <li>
+                        <Link href="/contact" className="hover:underline">Contact</Link>
                     </li>
                 </ul>
                 {/* Mobile Hamburger */}
@@ -60,16 +62,16 @@ const Nav: React.FC = () => {
                         <Link href="/" className="hover:underline" onClick={handleCloseMenu}>Home</Link>
                     </li>
                     <li>
-                        <Link href="/projects" className="hover:underline" onClick={handleCloseMenu}>Projects</Link>
-                    </li>
-                    <li>
                         <Link href="/about" className="hover:underline" onClick={handleCloseMenu}>About</Link>
                     </li>
                     <li>
-                        <Link href="/contact" className="hover:underline" onClick={handleCloseMenu}>Contact</Link>
+                        <Link href="/projects" className="hover:underline" onClick={handleCloseMenu}>Projects</Link>
                     </li>
                     <li>
                         <Link href="/blog" className="hover:underline" onClick={handleCloseMenu}>Blog</Link>
+                    </li>
+                    <li>
+                        <Link href="/contact" className="hover:underline" onClick={handleCloseMenu}>Contact</Link>
                     </li>
                 </ul>
             )}
