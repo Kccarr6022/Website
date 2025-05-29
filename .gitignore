@@ -13,6 +13,13 @@
 # testing
 /coverage
 
+# Images
+
+# build output
+public/images/**
+src/content/** */
+
+
 # next.js
 /.next/
 /out/
