@@ -15,7 +15,7 @@ type BlogImage = {
 export type BlogFrontMatter = {
   notionId: string;
   type: string;
-  date: string; // ISO date string
+  date: Date; // ISO date string
   tags: string;
   enabled: boolean;
   title: string;
@@ -26,22 +26,31 @@ export type BlogFrontMatter = {
   readingTime?: number; // Estimated reading time in minutes
 };
 
-export function getAllBlogs() {
-    const filenames = fs.readdirSync(blogsDirectory);
+export function getAllBlogs(): BlogFrontMatter[] {
+  const filenames = fs.readdirSync(blogsDirectory);
 
-    const blogs = filenames.map((filename) => {
-        const filePath = path.join(blogsDirectory, filename);
-        const fileContents = fs.readFileSync(filePath, "utf8");
-        const { data } = matter(fileContents);
+  const blogs = filenames.map((filename) => {
+    const filePath = path.join(blogsDirectory, filename);
+    const fileContents = fs.readFileSync(filePath, "utf8");
+    const { data } = matter(fileContents);
 
-        const blog: BlogFrontMatter = {
-            enabled: typeof data.enabled === "boolean" ? data.enabled : false,
-            ...data,
-            slug: data.slug || filename.replace(/\.md$/, ""),
-        };
+    // Manual, explicit assignment to avoid type errors
+    const blog: BlogFrontMatter = {
+      notionId: String(data.notionId),
+      type: String(data.type),
+      date: new Date(data.date),
+      tags: String(data.tags),
+      enabled: Boolean(data.enabled),
+      title: String(data.title),
+      slug: data.slug || filename.replace(/\.md$/, ""),
+      image: data.image,
+      description: data.description,
+      url: data.url,
+      readingTime: data.readingTime,
+    };
 
-        return blog;
-    });
+    return blog;
+  });
 
-    return blogs.filter((b) => b.enabled);
+  return blogs.filter((b) => b.enabled);
 }

@@ -15,7 +15,7 @@ export type ProjectFrontMatter = {
   notionId: string;
   type: string;
   tags: string;
-  date: string;
+  date: Date;
   enabled: boolean;
   title: string;
   slug: string;
@@ -34,9 +34,17 @@ export function getAllProjects() {
     const { data } = matter(fileContents);
 
     const project: ProjectFrontMatter = {
-      enabled: typeof data.enabled === "boolean" ? data.enabled : false,
-      ...data,
+      notionId: String(data.notionId),
+      type: String(data.type),
+      tags: String(data.tags),
+      date: new Date(data.date),
+      enabled: Boolean(data.enabled),
+      title: String(data.title),
       slug: data.slug || filename.replace(/\.md$/, ""),
+      githubUrl: data.githubUrl,
+      demoUrl: data.demoUrl,
+      description: data.description,
+      image: data.image,
     };
 
     return project;
